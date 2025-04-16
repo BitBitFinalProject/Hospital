@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "hospitals")
+@Table(name = "departments")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Hospital {
+public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,21 +23,12 @@ public class Hospital {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private String address;
-
-    @Column(nullable = false)
-    private String phone;
-
-    @OneToMany(mappedBy = "hospital")
+    @OneToMany(mappedBy = "department")
     private List<HospitalDepartment> hospitalDepartments = new ArrayList<>();
 
-    @OneToMany(mappedBy = "hospital")
+    @OneToMany(mappedBy = "department")
     private List<Doctor> doctors = new ArrayList<>();
 
-    @OneToMany(mappedBy = "hospital")
+    @OneToMany(mappedBy = "department")
     private List<Reservation> reservations = new ArrayList<>();
-
-    @OneToMany(mappedBy = "hospital")
-    private List<Review> reviews = new ArrayList<>();
 }

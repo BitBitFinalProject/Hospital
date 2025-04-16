@@ -5,16 +5,16 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "reservations")
+@Table(name = "doctors")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Reservation {
+public class Doctor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,24 +32,9 @@ public class Reservation {
     @JoinColumn(name = "department_id")
     private Department department;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "doctor_id")
-    private Doctor doctor;
-
     @Column(nullable = false)
-    private LocalDate reservationDate;
+    private String name;
 
-    @Column(nullable = false)
-    private LocalTime reservationTime;
-
-    @Column
-    private String reason;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private ReservationStatus status;
-
-    public enum ReservationStatus {
-        REQUESTED, APPROVED, REJECTED, CANCELED, COMPLETED
-    }
+    @OneToMany(mappedBy = "doctor")
+    private List<Reservation> reservations = new ArrayList<>();
 }
