@@ -39,4 +39,5 @@ public interface HospitalRepository extends JpaRepository<Hospital, Long> {
     List<Hospital> findByNameContainingAndDepartmentNameAndAddressContaining(@Param("name") String name,
             @Param("departmentName") String departmentName, @Param("address") String address);
 
+
 }

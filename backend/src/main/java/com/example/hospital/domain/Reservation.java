@@ -57,4 +57,25 @@ public class Reservation {
     public void setStatus(ReservationStatus status) {
         this.status = status;
     }
+    
+    // 예약 담당 의사 변경 메서드
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+    
+    // 예약 날짜 변경 메서드
+    public void setReservationDate(LocalDate reservationDate) {
+        this.reservationDate = reservationDate;
+    }
+    
+    // 예약 시간 변경 메서드
+    public void setReservationTime(LocalTime reservationTime) {
+        this.reservationTime = reservationTime;
+    }
+    
+    // 예약 사유 변경 메서드
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
 }

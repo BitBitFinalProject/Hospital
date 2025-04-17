@@ -31,6 +31,19 @@ public class ReservationDto {
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
+
+    public static class ReservationUpdateRequest {
+        private String reservationDate; // yyyy-MM-dd 형식
+        private String reservationTime; // HH:mm 형식
+        private String reason; // 증상이나 메모
+        private Long doctorId; // 의사 변경 가능
+    }
+
+    @Data
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+
     public static class ReservationResponse {
         private Long id;
         private String hospitalName;

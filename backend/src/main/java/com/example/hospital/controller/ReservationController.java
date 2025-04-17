@@ -5,6 +5,7 @@ import com.example.hospital.domain.User.UserRole;
 import com.example.hospital.dto.ReservationDto.ReservationListResponse;
 import com.example.hospital.dto.ReservationDto.ReservationRequest;
 import com.example.hospital.dto.ReservationDto.ReservationResponse;
+import com.example.hospital.dto.ReservationDto.ReservationUpdateRequest;
 import com.example.hospital.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,6 +51,37 @@ public class ReservationController {
     }
 
     /**
+
+     * 예약 수정 - 일반 사용자(PATIENT)만 가능
+     */
+    @PutMapping("/{reservationId}")
+    @PreAuthorize("hasRole('PATIENT')")
+    public ResponseEntity<?> updateReservation(
+            @PathVariable("reservationId") Long reservationId,
+            @RequestBody ReservationUpdateRequest request,
+            @AuthenticationPrincipal User user) {
+        try {
+            // 사용자 권한 확인
+            if (user.getRole() != UserRole.PATIENT) {
+                return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                        .body(createErrorResponse("일반 사용자(환자)만 예약을 수정할 수 있습니다."));
+            }
+
+            ReservationResponse response = reservationService.updateReservation(reservationId, request, user);
+            return ResponseEntity.ok(response);
+        } catch (AccessDeniedException e) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                    .body(createErrorResponse(e.getMessage()));
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            return ResponseEntity.badRequest().body(createErrorResponse(e.getMessage()));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(createErrorResponse("예약 수정 중 오류가 발생했습니다."));
+        }
+    }
+
+    /**
+
      * 사용자의 모든 예약 목록 조회
      */
     @GetMapping
@@ -119,6 +151,7 @@ public class ReservationController {
      */
     @PostMapping("/{reservationId}/cancel")
     @PreAuthorize("hasRole('PATIENT')")
+
     public ResponseEntity<?> cancelReservation(@PathVariable("reservationId") Long reservationId,
             @AuthenticationPrincipal User user) {
         try {
