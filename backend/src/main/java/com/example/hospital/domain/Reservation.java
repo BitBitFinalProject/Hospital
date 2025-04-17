@@ -52,7 +52,7 @@ public class Reservation {
     public enum ReservationStatus {
         REQUESTED, APPROVED, REJECTED, CANCELED, COMPLETED
     }
-    
+
     // 예약 상태 변경 메서드
     public void setStatus(ReservationStatus status) {
         this.status = status;
@@ -77,4 +77,5 @@ public class Reservation {
     public void setReason(String reason) {
         this.reason = reason;
     }
+
 }

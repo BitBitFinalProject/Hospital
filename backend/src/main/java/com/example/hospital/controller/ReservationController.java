@@ -51,6 +51,7 @@ public class ReservationController {
     }
 
     /**
+
      * 예약 수정 - 일반 사용자(PATIENT)만 가능
      */
     @PutMapping("/{reservationId}")
@@ -80,6 +81,7 @@ public class ReservationController {
     }
 
     /**
+
      * 사용자의 모든 예약 목록 조회
      */
     @GetMapping
@@ -149,7 +151,8 @@ public class ReservationController {
      */
     @PostMapping("/{reservationId}/cancel")
     @PreAuthorize("hasRole('PATIENT')")
-    public ResponseEntity<?> cancelReservation(@PathVariable Long reservationId,
+
+    public ResponseEntity<?> cancelReservation(@PathVariable("reservationId") Long reservationId,
             @AuthenticationPrincipal User user) {
         try {
             if (user.getRole() != UserRole.PATIENT) {

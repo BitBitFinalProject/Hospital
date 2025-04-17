@@ -85,6 +85,7 @@ public CorsConfigurationSource corsConfigurationSource() {
                         .requestMatchers("/api/hospitals/**").permitAll()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers(HttpMethod.PUT, "/api/reservations/**").authenticated()
+
                         .anyRequest().authenticated());
     
         http.authenticationProvider(authenticationProvider());

@@ -31,6 +31,7 @@ public class ReservationDto {
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
+
     public static class ReservationUpdateRequest {
         private String reservationDate; // yyyy-MM-dd 형식
         private String reservationTime; // HH:mm 형식
@@ -42,6 +43,7 @@ public class ReservationDto {
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
+
     public static class ReservationResponse {
         private Long id;
         private String hospitalName;
