@@ -1,0 +1,35 @@
+# === IDE 설정 ===
+.idea/
+.vscode/
+*.iml
+
+# === 운영체제 ===
+.DS_Store
+Thumbs.db
+
+# === Frontend ===
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# === Backend ===
+# Gradle wrapper만 남기고 나머지 캐시/빌드 결과 제외
+backend/.gradle/
+backend/build/
+!backend/gradle/wrapper/gradle-wrapper.jar
+
+# 자바 컴파일 결과
+*.class
+
+# Gradle 실행 이력 & 해시 & 잠금 파일
+backend/gradle/**/executionHistory.*
+backend/gradle/**/fileHashes.*
+backend/gradle/**/outputFiles.*
+backend/gradle/**/buildOutputCleanup.lock
+backend/gradle/**/executionHistory.lock
+
+# 환경 변수 파일
+backend/.env
+
+# === 로그 ===
+*.log

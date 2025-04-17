@@ -25,11 +25,14 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     compileOnly 'org.projectlombok:lombok'
-    runtimeOnly 'com.mysql.cj:mysql-connector-java:8.0.33'
     annotationProcessor 'org.projectlombok:lombok'
+    
+    // MySQL 커넥터를 implementation 또는 runtimeOnly로 추가
+    implementation 'com.mysql:mysql-connector-j:8.0.33'
+    
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
-} 
+}
