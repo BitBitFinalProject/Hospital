@@ -78,9 +78,12 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/api/auth/**").permitAll()
+
                         .requestMatchers("/api/auth/admin/**").permitAll()
                         .requestMatchers("/api/hospitals/**").permitAll()
+                        .requestMatchers("/api/reservations/**").authenticated()
                         .anyRequest().authenticated());
 
         http.authenticationProvider(authenticationProvider());

@@ -38,4 +38,5 @@ public interface HospitalRepository extends JpaRepository<Hospital, Long> {
     @Query("SELECT h FROM Hospital h JOIN h.hospitalDepartments hd JOIN hd.department d WHERE h.name LIKE %:name% AND d.name = :departmentName AND h.address LIKE %:address%")
     List<Hospital> findByNameContainingAndDepartmentNameAndAddressContaining(@Param("name") String name,
             @Param("departmentName") String departmentName, @Param("address") String address);
+
 }
