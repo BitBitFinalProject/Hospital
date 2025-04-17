@@ -32,6 +32,15 @@ public class UserDto {
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
+    public static class AdminLoginRequest {
+        private String email;
+        private String password;
+    }
+
+    @Data
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class JwtResponse {
         private String token;
         private String type = "Bearer";
@@ -39,6 +48,19 @@ public class UserDto {
         private String email;
         private String name;
         private String role;
+    }
+
+    @Data
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class AdminJwtResponse {
+        private String token;
+        private String type = "Bearer";
+        private Long id;
+        private String email;
+        private String name;
+        private boolean isAdmin;
     }
 
     @Data
