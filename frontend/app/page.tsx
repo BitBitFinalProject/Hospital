@@ -5,53 +5,12 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Header } from "@/components/Header"
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="sticky top-0 z-50 w-full border-b bg-white">
-        <div className="container flex items-center justify-between h-16 px-4 md:px-6">
-          <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="MediGo 로고" width={40} height={40} className="w-10 h-10" />
-            <span className="text-2xl font-bold text-sky-500">MediGo</span>
-          </Link>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="#" className="text-sm font-medium hover:text-sky-500 transition-colors">
-              홈
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:text-sky-500 transition-colors">
-              진료예약
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:text-sky-500 transition-colors">
-              의료진 소개
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:text-sky-500 transition-colors">
-              진료과목
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:text-sky-500 transition-colors">
-              병원안내
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:text-sky-500 transition-colors">
-              고객센터
-            </Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" className="md:hidden">
-              <Menu className="h-5 w-5" />
-              <span className="sr-only">메뉴 열기</span>
-            </Button>
-            <Button variant="ghost" size="icon">
-              <Search className="h-5 w-5" />
-              <span className="sr-only">검색</span>
-            </Button>
-            <Button variant="ghost" size="icon" className="hidden md:flex">
-              <User className="h-5 w-5" />
-              <span className="sr-only">프로필</span>
-            </Button>
-            <Button className="hidden md:flex bg-sky-500 hover:bg-sky-600">로그인</Button>
-          </div>
-        </div>
-      </header>
+      <Header />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-sky-50 to-white">
           <div className="container px-4 md:px-6">
@@ -73,7 +32,7 @@ export default function Home() {
                     <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
                   <Button variant="outline" className="border-sky-200 text-sky-700 hover:bg-sky-50">
-                    의료진 소개
+                    협력 병원 조회
                   </Button>
                 </div>
               </div>
@@ -117,7 +76,7 @@ export default function Home() {
                         value="doctor"
                         className="data-[state=active]:bg-sky-500 data-[state=active]:text-white"
                       >
-                        의료진 예약
+                        병원 예약
                       </TabsTrigger>
                     </TabsList>
                     <TabsContent value="department" className="space-y-4">
@@ -188,7 +147,7 @@ export default function Home() {
                       <div className="grid gap-4 md:grid-cols-2">
                         <div className="space-y-2">
                           <label htmlFor="doctor" className="text-sm font-medium">
-                            의료진 선택
+                            병원 선택
                           </label>
                           <select
                             id="doctor"
@@ -347,9 +306,10 @@ export default function Home() {
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-sky-700">MediGo 병원 소개</h2>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-sky-700">MediGo 소개</h2>
                   <p className="text-gray-500 md:text-xl">
-                    최신 의료 장비와 전문 의료진으로 최상의 의료 서비스를 제공합니다.
+                  환자 맞춤형 검색부터 간편 예약까지,<br/>
+                  믿을 수 있는 의료 서비스가 언제나 곁에 있습니다.
                   </p>
                 </div>
                 <ul className="space-y-2">
@@ -357,29 +317,29 @@ export default function Home() {
                     <div className="rounded-full bg-sky-100 p-1">
                       <ChevronRight className="h-4 w-4 text-sky-500" />
                     </div>
-                    <p>최신 의료 장비를 통한 정확한 진단</p>
+                    <p>신뢰와 편리함을 한번에</p>
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="rounded-full bg-sky-100 p-1">
                       <ChevronRight className="h-4 w-4 text-sky-500" />
                     </div>
-                    <p>경험이 풍부한 전문 의료진</p>
+                    <p>빠르고 정확한 의료 연결</p>
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="rounded-full bg-sky-100 p-1">
                       <ChevronRight className="h-4 w-4 text-sky-500" />
                     </div>
-                    <p>환자 중심의 맞춤형 진료 서비스</p>
+                    <p>환자 우선, 의료도 스마트하게</p>
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="rounded-full bg-sky-100 p-1">
                       <ChevronRight className="h-4 w-4 text-sky-500" />
                     </div>
-                    <p>편안하고 쾌적한 진료 환경</p>
+                    <p>의료 서비스의 새로운 기준</p>
                   </li>
                 </ul>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button className="bg-sky-500 hover:bg-sky-600">병원 둘러보기</Button>
+                  <Button className="bg-sky-500 hover:bg-sky-600">서비스 둘러보기</Button>
                 </div>
               </div>
               <div className="mx-auto w-full max-w-[500px] lg:max-w-none">
@@ -428,11 +388,11 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-2">
               <Clock className="h-4 w-4" />
-              <p>진료시간: 평일 09:00-18:00 | 토요일 09:00-13:00 | 일요일/공휴일 휴진</p>
+              <p>상담시간: 평일 09:00-18:00 | 토요일 09:00-13:00 </p>
             </div>
           </div>
           <div className="text-xs text-gray-500">
-            &copy; {new Date().getFullYear()} MediGo 병원. All rights reserved.
+            &copy; {new Date().getFullYear()} MediGo. All rights reserved.
           </div>
         </div>
       </footer>
