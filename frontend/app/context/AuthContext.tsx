@@ -17,6 +17,7 @@ type AuthContextType = {
   isLoading: boolean
   login: (token: string, user: User) => void
   logout: () => void
+  updateUser: (updatedUser: Partial<User>) => void
   isAuthenticated: boolean
 }
 
@@ -26,6 +27,7 @@ const AuthContext = createContext<AuthContextType>({
   isLoading: true,
   login: () => {},
   logout: () => {},
+  updateUser: () => {},
   isAuthenticated: false
 })
 
@@ -65,6 +67,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     router.push("/")
   }
 
+  // 사용자 정보 업데이트 함수
+  const updateUser = (updatedUser: Partial<User>) => {
+    if (user) {
+      const newUserData = { ...user, ...updatedUser }
+      localStorage.setItem("user", JSON.stringify(newUserData))
+      setUser(newUserData)
+    }
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -72,6 +83,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         isLoading,
         login,
         logout,
+        updateUser,
         isAuthenticated: !!user
       }}
     >

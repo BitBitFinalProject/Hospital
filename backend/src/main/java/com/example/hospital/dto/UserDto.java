@@ -70,4 +70,33 @@ public class UserDto {
     public static class MessageResponse {
         private String message;
     }
+
+    @Data
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class UpdateUserRequest {
+        private String name;
+        private String email;
+    }
+
+    @Data
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class UserResponse {
+        private Long id;
+        private String email;
+        private String name;
+        private String role;
+
+        public static UserResponse fromEntity(User user) {
+            return UserResponse.builder()
+                    .id(user.getId())
+                    .email(user.getEmail())
+                    .name(user.getName())
+                    .role(user.getRole().name())
+                    .build();
+        }
+    }
 }
