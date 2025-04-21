@@ -375,6 +375,15 @@ export default function Home() {
               <Link href="#" className="text-sm hover:underline underline-offset-4">
                 오시는 길
               </Link>
+              <Link href="#" className="text-sm font-medium hover:text-sky-500 transition-colors">
+                의료진 소개
+              </Link>
+              <Link href="/hospitals" className="text-sm font-medium hover:text-sky-500 transition-colors">
+                병원 목록
+              </Link>
+              <Link href="#" className="text-sm font-medium hover:text-sky-500 transition-colors">
+                진료과목
+              </Link>
             </nav>
           </div>
           <div className="grid gap-2 text-sm text-gray-500">

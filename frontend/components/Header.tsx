@@ -24,10 +24,10 @@ export function Header() {
             진료예약
           </Link>
           <Link href="#" className="text-sm font-medium hover:text-sky-500 transition-colors">
-            진료과목
+            의료진 소개
           </Link>
-          <Link href="#" className="text-sm font-medium hover:text-sky-500 transition-colors">
-            병원목록
+          <Link href="/hospitals" className="text-sm font-medium hover:text-sky-500 transition-colors">
+            병원 목록
           </Link>
           <Link href="#" className="text-sm font-medium hover:text-sky-500 transition-colors">
             고객센터
