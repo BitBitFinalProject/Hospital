@@ -108,7 +108,9 @@ export default function MyPage() {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button className="bg-sky-500 hover:bg-sky-600">정보 수정</Button>
+                <Link href="/mypage/edit">
+                  <Button className="bg-sky-500 hover:bg-sky-600">정보 수정</Button>
+                </Link>
               </CardFooter>
             </Card>
           </div>
@@ -117,7 +119,7 @@ export default function MyPage() {
 
       <footer className="w-full border-t bg-white py-4">
         <div className="container px-4 md:px-6 text-center text-sm text-gray-500">
-          &copy; {new Date().getFullYear()} MediGo 병원. All rights reserved.
+          &copy; {new Date().getFullYear()} MediGo. All rights reserved.
         </div>
       </footer>
     </div>

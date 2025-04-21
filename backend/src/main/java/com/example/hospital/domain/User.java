@@ -55,6 +55,15 @@ public class User implements UserDetails {
         PATIENT, ADMIN, DOCTOR
     }
 
+    // 사용자 정보 업데이트를 위한 setter 메소드 추가
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     // Spring Security UserDetails 구현 메서드
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
