@@ -6,9 +6,14 @@ import Script from "next/script";
 import KakaoInitializer from "@/components/KakaoInitializer";
 
 export const metadata: Metadata = {
-  title: 'v0 App',
+  title: 'MediGo',
   description: 'Created with v0',
   generator: 'v0.dev',
+  icons: {
+    icon:'/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
