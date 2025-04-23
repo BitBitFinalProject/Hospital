@@ -5,6 +5,7 @@ import { AuthProvider } from './context/AuthContext'
 import Script from "next/script";
 import KakaoInitializer from "@/components/KakaoInitializer";
 
+
 export const metadata: Metadata = {
   title: 'MediGo',
   description: 'Created with v0',
@@ -25,4 +26,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </body>
       </html>
   );
+
 }
