@@ -74,14 +74,6 @@ export default function MyPage() {
                     <FileText className="mr-2 h-4 w-4" />
                     진료 내역
                   </Button>
-                  <Button 
-                    variant={activeTab === "settings" ? "default" : "ghost"} 
-                    className="w-full justify-start"
-                    onClick={() => setActiveTab("settings")}
-                  >
-                    <Settings className="mr-2 h-4 w-4" />
-                    계정 설정
-                  </Button>
                   <Link href="/mypage/change-password">
                     <Button 
                       variant={activeTab === "change-password" ? "default" : "ghost"} 
