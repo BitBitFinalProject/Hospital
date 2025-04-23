@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { ChevronLeft, User, Calendar, FileText, Settings, LockKeyhole } from "lucide-react"
@@ -12,6 +12,7 @@ import { Header } from "@/components/Header"
 export default function MyPage() {
   const { user, isAuthenticated, isLoading } = useAuth()
   const router = useRouter()
+  const [activeTab, setActiveTab] = useState("profile") // 기본값은 프로필 정보 탭
 
   // 인증되지 않은 사용자는 로그인 페이지로 리다이렉트
   useEffect(() => {
@@ -49,26 +50,47 @@ export default function MyPage() {
               </CardHeader>
               <CardContent>
                 <nav className="space-y-2">
-                  <Button variant="ghost" className="w-full justify-start">
+                  <Button 
+                    variant={activeTab === "profile" ? "default" : "ghost"} 
+                    className="w-full justify-start"
+                    onClick={() => setActiveTab("profile")}
+                  >
                     <User className="mr-2 h-4 w-4" />
                     내 정보
                   </Button>
-                  <Button variant="ghost" className="w-full justify-start">
+                  <Button 
+                    variant={activeTab === "appointments" ? "default" : "ghost"} 
+                    className="w-full justify-start"
+                    onClick={() => setActiveTab("appointments")}
+                  >
                     <Calendar className="mr-2 h-4 w-4" />
                     예약 내역
                   </Button>
-                  <Button variant="ghost" className="w-full justify-start">
+                  <Button 
+                    variant={activeTab === "records" ? "default" : "ghost"} 
+                    className="w-full justify-start"
+                    onClick={() => setActiveTab("records")}
+                  >
                     <FileText className="mr-2 h-4 w-4" />
                     진료 내역
                   </Button>
-                  <Button variant="ghost" className="w-full justify-start">
+                  <Button 
+                    variant={activeTab === "settings" ? "default" : "ghost"} 
+                    className="w-full justify-start"
+                    onClick={() => setActiveTab("settings")}
+                  >
                     <Settings className="mr-2 h-4 w-4" />
                     계정 설정
                   </Button>
-                  <Button variant="ghost" className="w-full justify-start">
-                    <LockKeyhole className="mr-2 h-4 w-4" />
-                    비밀번호 변경
-                  </Button>
+                  <Link href="/mypage/change-password">
+                    <Button 
+                      variant={activeTab === "change-password" ? "default" : "ghost"} 
+                      className="w-full justify-start"
+                    >
+                      <LockKeyhole className="mr-2 h-4 w-4" />
+                      비밀번호 변경
+                    </Button>
+                  </Link>
                 </nav>
               </CardContent>
             </Card>
@@ -107,7 +129,7 @@ export default function MyPage() {
                   </div>
                 </div>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="flex space-x-2">
                 <Link href="/mypage/edit">
                   <Button className="bg-sky-500 hover:bg-sky-600">정보 수정</Button>
                 </Link>

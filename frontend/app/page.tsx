@@ -27,13 +27,17 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button className="bg-sky-500 hover:bg-sky-600">
-                    지금 예약하기
-                    <ChevronRight className="ml-2 h-4 w-4" />
-                  </Button>
-                  <Button variant="outline" className="border-sky-200 text-sky-700 hover:bg-sky-50">
-                    협력 병원 조회
-                  </Button>
+                  <Link href="/appointment">
+                    <Button className="bg-sky-500 hover:bg-sky-600">
+                      지금 예약하기
+                      <ChevronRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                  <Link href="/hospitals">
+                    <Button variant="outline" className="border-sky-200 text-sky-700 hover:bg-sky-50">
+                      협력 병원 조회
+                    </Button>
+                  </Link>
                 </div>
               </div>
               <div className="mx-auto w-full max-w-[500px] lg:max-w-none">
@@ -141,7 +145,9 @@ export default function Home() {
                           </div>
                         </div>
                       </div>
-                      <Button className="w-full bg-sky-500 hover:bg-sky-600 mt-2">예약하기</Button>
+                      <Link href="/appointment">
+                        <Button className="w-full bg-sky-500 hover:bg-sky-600 mt-2">예약하기</Button>
+                      </Link>
                     </TabsContent>
                     <TabsContent value="doctor" className="space-y-4">
                       <div className="grid gap-4 md:grid-cols-2">
@@ -204,7 +210,9 @@ export default function Home() {
                           </div>
                         </div>
                       </div>
-                      <Button className="w-full bg-sky-500 hover:bg-sky-600 mt-2">예약하기</Button>
+                      <Link href="/appointment">
+                        <Button className="w-full bg-sky-500 hover:bg-sky-600 mt-2">예약하기</Button>
+                      </Link>
                     </TabsContent>
                   </Tabs>
                 </CardContent>

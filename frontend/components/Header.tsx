@@ -20,7 +20,7 @@ export function Header() {
           <Link href="/" className="text-sm font-medium hover:text-sky-500 transition-colors">
             홈
           </Link>
-          <Link href="#" className="text-sm font-medium hover:text-sky-500 transition-colors">
+          <Link href="/appointment" className="text-sm font-medium hover:text-sky-500 transition-colors">
             진료예약
           </Link>
           <Link href="#" className="text-sm font-medium hover:text-sky-500 transition-colors">
